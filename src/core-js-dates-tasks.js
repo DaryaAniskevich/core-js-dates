@@ -56,7 +56,7 @@ function getDayName(date) {
     'Friday',
     'Saturday',
   ];
-  return days[new Date(date).getDay()];
+  return days[new Date(date).getUTCDay()];
 }
 
 /**
@@ -208,10 +208,10 @@ function getCountWeekendsInMonth(month, year) {
  */
 function getWeekNumberByDate(date) {
   const dateObj = new Date(date);
-  const firstDayOfYear = new Date(dateObj.getFullYear(), 0, 1);
+  const firstDayOfYear = new Date(dateObj.getUTCFullYear(), 0, 1);
   const oneDayMSeconds = 1000 * 60 * 60 * 24;
   const daysDiff = (dateObj - firstDayOfYear) / oneDayMSeconds;
-  const weekNumber = Math.ceil((daysDiff + firstDayOfYear.getDay() + 1) / 7);
+  const weekNumber = Math.ceil((daysDiff + firstDayOfYear.getUTCDay() + 1) / 7);
   return weekNumber;
 }
 
