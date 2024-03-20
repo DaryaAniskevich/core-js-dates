@@ -228,9 +228,9 @@ function getWeekNumberByDate(date) {
  * Date(2023, 1, 1) => Date(2023, 9, 13)
  */
 function getNextFridayThe13th(date) {
-  const nextFriday = getNextFriday(date);
+  const nextFriday = getNextFriday(new Date(date));
   if (nextFriday.getUTCDate() === 13) {
-    return nextFriday;
+    return new Date(nextFriday.setDate(13));
   }
   return getNextFridayThe13th(nextFriday);
 }
