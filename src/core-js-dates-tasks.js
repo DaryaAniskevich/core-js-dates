@@ -80,8 +80,10 @@ function getNextFriday(date) {
     3: 2,
     4: 1,
   };
-  const dayOfWeek = new Date(date).getDay();
-  return new Date(date.setDate(date.getDate() + dayDiff[String(dayOfWeek)]));
+  const dayOfWeek = new Date(date).getUTCDay();
+  return new Date(
+    date.setUTCDate(date.getUTCDate() + dayDiff[String(dayOfWeek)])
+  );
 }
 
 /**
